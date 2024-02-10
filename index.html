@@ -16,15 +16,27 @@
         <div>
             <h2 class="text-3xl text-white text-center mt-4">Search your phone</h2>
             <div class="text-center mt-4">
-                <input class="text-white p-3 rounded-lg  md:w-[550px] ring-2 ring-cyan-300 mx-7" type="text" name="" id="search-text">
-                <button id="search-button" onclick="handelSearch()" class="btn btn-primary px-8 mt-5 ring-2 ring-yellow-300">Search</button>
+                <input type="text" placeholder=""
+                    class="input input-bordered input-warning text-white mx-7 p-3 rounded-lg  md:w-[550px]" name=""
+                    id="search-text" />
+                <!-- <input class=" ring-2 ring-cyan-300 " type="text"> -->
+                <button id="search-button" onclick="handelSearch()"
+                    class="btn btn-primary px-8 mt-5 ring-2 ring-yellow-300">Search</button>
             </div>
         </div>
     </header>
+
     <main class="container mx-auto">
         <section>
+            <div id="loading-spiner" class=" text-center mt-[200px] hidden">
+                <span class="loading loading-spinner text-white loading-lg"></span>
+            </div>
             <div id="phone-container" class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3">
 
+            </div>
+            <!-- Show all button  -->
+            <div class="text-center mt-3 hidden" id="show-all-content">
+                <button class="btn btn-secondary">Show All</button>
             </div>
         </section>
     </main>

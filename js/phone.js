@@ -11,6 +11,19 @@ const displayPhones = (phones) => {
     const phoneContainer = document.getElementById('phone-container');
     // Clear container
     phoneContainer.textContent = '';
+
+    //condition show all button when show more than 10 data
+    const showAllContent = document.getElementById('show-all-content');
+    if(phones.length > 9){
+        showAllContent.classList.remove('hidden');
+    }
+    else{
+        showAllContent.classList.add('hidden');
+    }
+
+    // Display limite data 0 to 10
+    phones = phones.slice(0, 9);
+
     phones.forEach(phone => {
         // 2: Create a div
         const phoneCard = document.createElement('div');
@@ -35,10 +48,24 @@ const displayPhones = (phones) => {
         phoneContainer.appendChild(phoneCard);
 
     });
+    toggleLoadingSpinner(false);
 }
 
 const handelSearch = () =>{
+    toggleLoadingSpinner(true);
     const searchField = document.getElementById('search-text');
     const searchText1 = searchField.value;
     loadPhone(searchText1);
+}
+
+//Loading spinner
+
+const toggleLoadingSpinner =(isLoading) =>{
+    const loadingSpinner = document.getElementById('loading-spiner');
+    if(isLoading){
+        loadingSpinner.classList.remove('hidden');
+    }
+    else{
+        loadingSpinner.classList.add('hidden');
+    }
 }
